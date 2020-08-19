@@ -40,6 +40,6 @@ public class JwtAuthenticationController {
   public UsersModel saveUser(@RequestBody UsersModel model) {
     final Users user = model.toUsers(passwordEncoder);
     userDetailsService.save(user);
-    return model;
+    return UsersModel.from(user);
   }
 }
